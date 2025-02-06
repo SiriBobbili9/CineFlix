@@ -26,3 +26,7 @@ Create React App
 
 
 
+Issue in after signup the logo and name is not coming in header
+
+
+
