@@ -62,5 +62,7 @@
 //Movie id we need to pass dynamically to api. So we will be getting different type of Movies form this list filter the trailer video and take the first trailer for the background.This api will provide the key this key we need to pass it to the iframe src.
 
 //Secondaru Container
-//FOr the Movies cards we need the poster-path  that we will be getting from an api so we need to attach with the  full path so search in tMDB DOcumentaion with image url. you will find the image url pass the path dynamically. Place it in the const file
-// https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg
+//FOr the Movies cards we need the poster-path  that we will be getting from an api so we need to attach with the  full path so search in tMDB DOcumentaion with image url. you will find the image url pass the path dynamically. Place it in the const file.
+// https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg;
+//use all popular trending apis
+

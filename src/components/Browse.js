@@ -1,29 +1,25 @@
-import React, { useEffect } from 'react'
-import Header from './Header'
-import { API_OPTIONS } from '../utils/constants'
-import { useDispatch } from 'react-redux'
-import { addNowPlayingMovies } from '../store/movieSlice'
-import useNowPlayingMovies from '../customHooks/useNowPlayingMovies'
-import MainContainer from './MainContainer'
-import SecondaryContainer from './SecondaryContainer'
-import usePopularMovies from '../customHooks/usePopularMovies'
-import useTopRatedMovies from '../customHooks/useTopRatedMovies'
-import useUpcomingMovies from '../customHooks/addUpcomingMovies'
+import React from "react";
+import Header from "./Header";
+import { useDispatch, useSelector } from "react-redux";
+import useNowPlayingMovies from "../customHooks/useNowPlayingMovies";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
+import usePopularMovies from "../customHooks/usePopularMovies";
+import useTopRatedMovies from "../customHooks/useTopRatedMovies";
+import useUpcomingMovies from "../customHooks/addUpcomingMovies";
+import GptSearchPage from "./GptSearchPage";
 
 const Browse = () => {
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
   useNowPlayingMovies();
   usePopularMovies();
   useTopRatedMovies();
-  useUpcomingMovies()
-
+  useUpcomingMovies();
 
   return (
     <div>
-    <Header />
-    <MainContainer />
-    <SecondaryContainer />
-     {/* 
+    {/* 
           MainContainer
             - VideoBackground
             - VideoTitle
@@ -31,8 +27,19 @@ const Browse = () => {
             - MovieList * n
               - cards * n
       */}
-    </div>
-  )
-}
+      <Header />
+      {showGptSearch ? (
+        <GptSearchPage />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
 
-export default Browse
+      
+    </div>
+  );
+};
+
+export default Browse;
